@@ -17,4 +17,17 @@
     <string name="password_medium">Средний</string>
     <string name="password_weak">Слабый</string>
     <string name="symbols_amount">Символов</string>
+
+    <item name="en_up" type="string" translatable="false">
+        QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM&lt;&gt;
+    </item>
+    <item name="en_low" type="string" translatable="false">
+        qwertyuiop[]asdfghjkl;\'zxcvbnm,.
+    </item>
+    <item name="ru_up" type="string" translatable="false">
+        ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ
+    </item>
+    <item name="ru_low" type="string" translatable="false">
+        йцукенгшщзхъфывапролджэячсмитьбю
+    </item>
 </resources>
