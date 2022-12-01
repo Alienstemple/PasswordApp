@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">PasswordApp</string>
+    <string name="enter_text">Введите текст</string>
+    <string name="another_text_layout">В другой раскладке</string>
+    <string name="copy_to_clipboard">Copy</string>
+    <string name="password_generation_welcome">Сгенерируем пароль</string>
+    <string name="password_generation_check_strong">Проверим надежность</string>
+    <string name="password_generation_which_symbols">Какие символы добавим?</string>
+    <string name="password_generation_big_eng">Большие латинские буквы</string>
+    <string name="password_generation_numbers">Цифры</string>
+    <string name="password_generation_special_symb">Спец символы</string>
+    <string name="password_generation_generate">Сгенерировать</string>
+    <string name="password_strong">Надежный</string>
+    <string name="password_medium">Средний</string>
+    <string name="password_weak">Слабый</string>
+    <string name="symbols_amount">Символов</string>
 </resources>
