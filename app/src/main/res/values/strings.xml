@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">PasswordApp</string>
     <string name="enter_text">Введите текст</string>
+    <string name="paste_text">Вставьте текст с помощью кнопки</string>
     <string name="another_text_layout">В другой раскладке</string>
     <string name="copy_to_clipboard">Copy</string>
+    <string name="paste_from_clipboard">Paste</string>
     <string name="text_was_copied">Текст скопирован</string>
     <string name="password_generation_welcome">Сгенерируем пароль</string>
     <string name="password_generation_check_strong">Проверим надежность</string>

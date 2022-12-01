@@ -5,6 +5,7 @@ import android.content.ClipboardManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.example.passwordapp.constants.Constants
 import com.example.passwordapp.databinding.ActivityMainBinding
@@ -34,8 +35,14 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, R.string.text_was_copied, Toast.LENGTH_SHORT).show()
         }
 
+        mainBinding.pasteButton.setOnClickListener {
+            Log.d(TAG, "Text pasted")
+            val myClipData = myClipboard.primaryClip
+            val clipDataItem = myClipData?.getItemAt(0)
 
+            mainBinding.anotherLayoutTextView.text = clipDataItem?.text.toString()
+
+            Toast.makeText(applicationContext, "Text Pasted", Toast.LENGTH_SHORT).show()
+        }
     }
-
-
 }
