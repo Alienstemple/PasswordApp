@@ -70,10 +70,10 @@ class MainActivity : AppCompatActivity() {
             for (ind in enteredText.indices) {
                 Log.d(TAG, "Current symbol: ${enteredText[ind]}")
                 var ch = when (enteredText[ind]) {
-                    in Constants.EN_LOW_KEYB -> Constants.RU_LOW[ind]
-                    in Constants.EN_UP_KEYB -> Constants.RU_UP[ind]
-                    in Constants.RU_LOW -> Constants.EN_LOW_KEYB[ind]
-                    in Constants.RU_UP -> Constants.EN_UP_KEYB[ind]
+                    in Constants.EN_LOW_KEYB -> Constants.RU_LOW[Constants.EN_LOW_KEYB.indexOf(enteredText[ind])]
+                    in Constants.EN_UP_KEYB -> Constants.RU_UP[Constants.EN_UP_KEYB.indexOf(enteredText[ind])]
+                    in Constants.RU_LOW -> Constants.EN_LOW_KEYB[Constants.RU_LOW.indexOf(enteredText[ind])]
+                    in Constants.RU_UP -> Constants.EN_UP_KEYB[Constants.RU_UP.indexOf(enteredText[ind])]
                     else -> ""  // TODO throw Toast for wrong symbol
 //                    Toast.makeText(this, "Вы ввели неверный символ: ${enteredText[ind]} \n",
 //                        Toast.LENGTH_SHORT)
