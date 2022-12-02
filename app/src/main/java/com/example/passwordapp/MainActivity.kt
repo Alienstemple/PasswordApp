@@ -3,12 +3,9 @@ package com.example.passwordapp
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.text.set
 import com.example.passwordapp.databinding.ActivityMainBinding
 import com.example.passwordapp.misc.Constants
 
