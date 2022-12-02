@@ -69,6 +69,7 @@ class MainActivity : AppCompatActivity() {
              * For example, 'R' goes to 'К', '[' goes to 'х', '{' goes to 'Х'
              */
             Log.d(TAG, "Entered text: $enteredText")
+            var translatedText = ""
             for (ind in enteredText.indices) {
                 Log.d(TAG, "Current symbol: ${enteredText[ind]}")
                 var ch = when (enteredText[ind]) {
@@ -81,8 +82,9 @@ class MainActivity : AppCompatActivity() {
 //                        Toast.LENGTH_SHORT)
                 }
                 Log.d(TAG, "Translated to: $ch")
-                mainBinding.enterText.text.set(ind, ind, ch)
+                translatedText += ch
             }
+            mainBinding.anotherLayoutTextView.text = translatedText
 
         }
 
