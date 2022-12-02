@@ -75,4 +75,10 @@
         tools:layout_editor_absoluteX="43dp"
         tools:layout_editor_absoluteY="553dp" />
 
+    <TextView
+        android:id="@+id/readyPasswordTextView"
+        android:layout_width="88dp"
+        android:layout_height="36dp"
+        android:text="@string/ready_password" />
+
 </LinearLayout>

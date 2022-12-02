@@ -20,13 +20,16 @@ class MainActivity : AppCompatActivity() {
     lateinit var myClip: ClipData
 
     // Get En and Ru symbols
-    private val en_UP = resources.getString(R.string.en_up)
-    private val en_LOW = resources.getString(R.string.en_low)
-    private val en = en_UP + en_LOW
 
-    private val ru_UP = resources.getString(R.string.ru_up)
-    private val ru_LOW = resources.getString(R.string.ru_low)
-    private val ru = ru_UP + ru_LOW
+
+
+
+//    private val en_LOW = getString(R.string.en_low)
+//    private val en = en_UP + en_LOW
+//
+//    private val ru_UP = resources.getString(R.string.ru_up)   // FIXME java.lang.NPE
+//    private val ru_LOW = resources.getString(R.string.ru_low)
+//    private val ru = ru_UP + ru_LOW
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -124,6 +127,14 @@ class MainActivity : AppCompatActivity() {
 //                }
 //            }
 
+        mainBinding.readyPasswordTextView.text = randomSymbol(true, true, true).toString().repeat(5)
+    }
 
+    fun randomSymbol(up: Boolean, num: Boolean, special: Boolean): Char {
+        val alph = "abcdefghijk"
+
+        if(up)  // TODO make logic
+            alph.replaceRange(1, 2, "6")
+        return alph[alph.indices.random()]
     }
 }
