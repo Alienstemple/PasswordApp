@@ -2,15 +2,15 @@ package com.example.passwordapp
 
 import android.content.ClipData
 import android.content.ClipboardManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.widget.Toast
-import com.example.passwordapp.misc.Constants
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.text.set
 import com.example.passwordapp.databinding.ActivityMainBinding
-import com.example.passwordapp.misc.Layouts
+import com.example.passwordapp.misc.Constants
 
 class MainActivity : AppCompatActivity() {
     private val TAG = "MainActLog"
@@ -20,10 +20,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var myClip: ClipData
 
     // Get En and Ru symbols
-
-
-
-
+//    private val en_UP = getString(R.string.en_up)
 //    private val en_LOW = getString(R.string.en_low)
 //    private val en = en_UP + en_LOW
 //
@@ -41,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         val enteredText = mainBinding.enterText.text
 
-        mainBinding.copyButton.setOnClickListener {
+        mainBinding.copyButton.setOnClickListener {   // Copy text
             Log.d(TAG, "Button Copy pressed")
             myClip = ClipData.newPlainText(Constants.COPIED_TEXT, enteredText)
             myClipboard.setPrimaryClip(myClip)
@@ -49,47 +46,50 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, R.string.text_was_copied, Toast.LENGTH_SHORT).show()
         }
 
-        mainBinding.pasteButton.setOnClickListener {
+        mainBinding.pasteButton.setOnClickListener {  // Paste text
             Log.d(TAG, "Text pasted")
             val myClipData = myClipboard.primaryClip
             val clipDataItem = myClipData?.getItemAt(0)
 
             mainBinding.anotherLayoutTextView.text = clipDataItem?.text.toString()
 
-            Toast.makeText(applicationContext, "Text Pasted", Toast.LENGTH_SHORT).show()  // short perion of time
+            Toast.makeText(applicationContext, "Text Pasted", Toast.LENGTH_SHORT)
+                .show()  // short perion of time
         }
 
-//        TODO("Find out what is object")
-        mainBinding.enterText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+        mainBinding.translateButton.setOnClickListener {
+            if (enteredText.isEmpty()) {   // Check if empty
+                Log.d(TAG, "Entered text is empty! Can't translate!")
+                mainBinding.anotherLayoutTextView.text = ""
+                return@setOnClickListener  // TODO check
             }
 
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun afterTextChanged(p0: Editable?) {
-                if (p0 == null || enteredText.isEmpty()) {   // Check if empty
-                    mainBinding.anotherLayoutTextView.text = ""
-                    return
+            /**
+             * Checks if symbol is in eng or rus keyborad layout and translates for another layout.
+             * For example, 'R' goes to 'К', '[' goes to 'х', '{' goes to 'Х'
+             */
+            Log.d(TAG, "Entered text: $enteredText")
+            for (ind in enteredText.indices) {
+                Log.d(TAG, "Current symbol: ${enteredText[ind]}")
+                var ch = when (enteredText[ind]) {
+                    in Constants.EN_LOW_KEYB -> Constants.RU_LOW[ind]
+                    in Constants.EN_UP_KEYB -> Constants.RU_UP[ind]
+                    in Constants.RU_LOW -> Constants.EN_LOW_KEYB[ind]
+                    in Constants.RU_UP -> Constants.EN_UP_KEYB[ind]
+                    else -> ""  // TODO throw Toast for wrong symbol
+//                    Toast.makeText(this, "Вы ввели неверный символ: ${enteredText[ind]} \n",
+//                        Toast.LENGTH_SHORT)
                 }
-
-//                var layout: Layouts = Layouts.Any  // FIXME Initialize layout
-//
-//                for (c in p0) {
-//
-//                    layout = when {
-//                        c in en -> Layouts.En
-//                        c in ru -> Layouts.Ru
-//                        else -> Layouts.Any
-//                    }
-//                }
-
+                Log.d(TAG, "Translated to: $ch")
+                mainBinding.enterText.text.set(ind, ind, ch)
             }
 
         }
 
-        )
 
+    }
+
+}
 
 
 //
@@ -127,14 +127,12 @@ class MainActivity : AppCompatActivity() {
 //                }
 //            }
 
-        mainBinding.readyPasswordTextView.text = randomSymbol(true, true, true).toString().repeat(5)
-    }
+//mainBinding.readyPasswordTextView.text = randomSymbol(true, true, true).toString().repeat(5)
 
-    fun randomSymbol(up: Boolean, num: Boolean, special: Boolean): Char {
-        val alph = "abcdefghijk"
+fun randomSymbol(up: Boolean, num: Boolean, special: Boolean): Char {
+    val alph = "abcdefghijk"
 
-        if(up)  // TODO make logic
-            alph.replaceRange(1, 2, "6")
-        return alph[alph.indices.random()]
-    }
+    if (up)  // TODO make logic
+        alph.replaceRange(1, 2, "6")
+    return alph[alph.indices.random()]
 }
