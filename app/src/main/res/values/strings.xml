@@ -18,6 +18,7 @@
     <string name="password_weak">Слабый</string>
     <string name="symbols_amount">Символов</string>
     <string name="ready_password">Готовый пароль</string>
+    <string name="symbols_in_pswd">Символов в пароле</string>
 
     <item name="en_up" type="string" translatable="false">
         QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM&lt;&gt;

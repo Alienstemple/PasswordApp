@@ -88,53 +88,41 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        mainBinding.passwordGenerateButton.setOnClickListener {
+            val numberOfSymbolsInPswd: Int = mainBinding.numOfSymbolsInPswd.text.toString().toInt()
+            val isBigEngChecked = mainBinding.bigEngCheckBox.isChecked
+            val isNumberChecked = mainBinding.numbersCheckBox.isChecked
+            val isSpecialSymbChecked = mainBinding.specialSymbCheckBox.isChecked
+
+            if (numberOfSymbolsInPswd < Constants.MIN_PSWD_LENGTH) {  // Check if too litle symbols
+                mainBinding.numOfSymbolsInPswd.text.clear()
+                Toast.makeText(this, Constants.TOO_SHORT_PSWD_ALERT, Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            mainBinding.readyPasswordTextView.text = generatePassword(
+                numberOfSymbolsInPswd,
+                isBigEngChecked,
+                isNumberChecked,
+                isSpecialSymbChecked
+            )
+        }
+
 
     }
 
-}
+    private fun generatePassword(length: Int, up: Boolean, num: Boolean, special: Boolean): String {
+        var symbolsRange = Constants.EN_LOW  // Default - en low
+        if(up) symbolsRange = "$symbolsRange${Constants.EN_UP}"  // TODO check min 1 symb of this category
+        if(num) symbolsRange = "$symbolsRange${Constants.NUM}"
+        if(special) symbolsRange = "$symbolsRange${Constants.SPEC}"
+        // TODO check length
+        val generatedPswd = CharArray(length) { i -> randomSymbol(symbolsRange) }.joinToString("")
+        Log.d(TAG, "Generated: $generatedPswd")
+        return generatedPswd
+    }
 
-
-//
-//                Log.d("Layout", "$layout $text")
-//
-//                when (layout) {
-//                    Layouts.Any -> {
-//                        output.setText("")
-//                        output.hint = resources.getString(R.string.ambiguous_text)
-//                    }
-//                    Layouts.En -> {
-//                        var s = ""
-//                        for (c in text) {
-//                            val i = keysEn.indexOfFirst { it == c}
-//                            s += if (i != -1) {
-//                                keysRu[i]
-//                            } else {
-//                                c
-//                            }
-//                        }
-//                        output.setText(s)
-//                    }
-//                    Layouts.Ru -> {
-//                        var s = ""
-//                        for (c in text) {
-//                            val i = keysRu.indexOfFirst { it == c }
-//                            s += if (i != -1) {
-//                                keysEn[i]
-//                            } else {
-//                                c
-//                            }
-//                        }
-//                        output.setText(s)
-//                    }
-//                }
-//            }
-
-//mainBinding.readyPasswordTextView.text = randomSymbol(true, true, true).toString().repeat(5)
-
-fun randomSymbol(up: Boolean, num: Boolean, special: Boolean): Char {
-    val alph = "abcdefghijk"
-
-    if (up)  // TODO make logic
-        alph.replaceRange(1, 2, "6")
-    return alph[alph.indices.random()]
+    private fun randomSymbol(symbolsRange: String): Char {
+        return symbolsRange[symbolsRange.indices.random()]
+    }
 }

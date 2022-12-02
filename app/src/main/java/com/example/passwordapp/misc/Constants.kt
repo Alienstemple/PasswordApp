@@ -10,4 +10,6 @@ object Constants {
     const val RU_UP = "ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ"
     const val NUM = "1234567890"
     const val SPEC = "~!@#$%^&*-_"
+    const val MIN_PSWD_LENGTH = 4
+    const val TOO_SHORT_PSWD_ALERT = "Задано слишком малое число символов!"
 }
