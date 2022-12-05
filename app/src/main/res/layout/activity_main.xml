@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainLinearLayout"
+    android:id="@+id/main_linear_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:scrollbarSize="8dp"
+    android:scrollbarSize="@dimen/scrollbar_size"
     android:background="@drawable/main_background"
     tools:context=".MainActivity">
 
@@ -20,7 +20,7 @@
             android:layout_height="match_parent" >
 
             <EditText
-                android:id="@+id/enterText"
+                android:id="@+id/enter_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/enter_text"
@@ -28,7 +28,7 @@
                 tools:layout_editor_absoluteY="36dp"></EditText>
 
             <Button
-                android:id="@+id/copyButton"
+                android:id="@+id/copy_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/copy_to_clipboard"
@@ -41,7 +41,7 @@
             android:layout_height="match_parent" >
 
             <TextView
-                android:id="@+id/anotherLayoutTextView"
+                android:id="@+id/another_layout_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/paste_text" />
@@ -52,7 +52,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/translateButton"
+                    android:id="@+id/translate_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/another_text_layout"
@@ -61,7 +61,7 @@
                     tools:layout_editor_absoluteY="34dp" />
 
                 <Button
-                    android:id="@+id/pasteButton"
+                    android:id="@+id/paste_button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/paste_from_clipboard" />
@@ -83,7 +83,7 @@
                     android:orientation="vertical">
 
                     <CheckBox
-                        android:id="@+id/numbersCheckBox"
+                        android:id="@+id/numbers_check_box"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/password_generation_numbers"
@@ -91,7 +91,7 @@
                         tools:layout_editor_absoluteY="386dp" />
 
                     <CheckBox
-                        android:id="@+id/specialSymbCheckBox"
+                        android:id="@+id/special_symb_check_box"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/password_generation_special_symb"
@@ -99,7 +99,7 @@
                         tools:layout_editor_absoluteY="494dp" />
 
                     <CheckBox
-                        android:id="@+id/bigEngCheckBox"
+                        android:id="@+id/big_eng_check_box"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/password_generation_big_eng"
@@ -109,7 +109,7 @@
 
             </FrameLayout>
             <EditText
-                android:id="@+id/numOfSymbolsInPswd"
+                android:id="@+id/num_of_symbols_in_pswd"
                 android:layout_width="96dp"
                 android:layout_height="wrap_content"
                 android:hint="@string/symbols_in_pswd"
@@ -117,7 +117,7 @@
                 tools:layout_editor_absoluteY="38dp"></EditText>
 
             <Button
-                android:id="@+id/passwordGenerateButton"
+                android:id="@+id/password_generate_button"
                 android:layout_width="174dp"
                 android:layout_height="62dp"
                 android:text="@string/password_generation_generate"
@@ -145,17 +145,17 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/readyPasswordTextView"
+        android:id="@+id/ready_password_text_view"
         android:layout_width="160dp"
         android:layout_height="30dp"
         android:text="@string/ready_password" />
 
     <ProgressBar
-        android:id="@+id/pswdStrengthProgressBar"
+        android:id="@+id/pswd_strength_progress_bar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="250dp"
         android:layout_height="24dp"
         android:background="#95D3CD"
-        android:scrollbarSize="8dp" />
+        android:scrollbarSize="@dimen/scrollbar_size" />
 
 </LinearLayout>
