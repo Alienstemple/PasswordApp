@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:scrollbarSize="7dp"
+    android:scrollbarSize="8dp"
     android:background="@drawable/main_background"
     tools:context=".MainActivity">
 
@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/enter_text"
                 tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="37dp"></EditText>
+                tools:layout_editor_absoluteY="36dp"></EditText>
 
             <Button
                 android:id="@+id/copyButton"
@@ -56,7 +56,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/another_text_layout"
-                    android:textSize="8sp"
+                    android:textSize="@dimen/text_size"
                     tools:layout_editor_absoluteX="184dp"
                     tools:layout_editor_absoluteY="34dp" />
 
@@ -88,7 +88,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/password_generation_numbers"
                         tools:layout_editor_absoluteX="36dp"
-                        tools:layout_editor_absoluteY="387dp" />
+                        tools:layout_editor_absoluteY="386dp" />
 
                     <CheckBox
                         android:id="@+id/specialSymbCheckBox"
@@ -96,7 +96,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/password_generation_special_symb"
                         tools:layout_editor_absoluteX="36dp"
-                        tools:layout_editor_absoluteY="491dp" />
+                        tools:layout_editor_absoluteY="494dp" />
 
                     <CheckBox
                         android:id="@+id/bigEngCheckBox"
@@ -104,25 +104,25 @@
                         android:layout_height="wrap_content"
                         android:text="@string/password_generation_big_eng"
                         tools:layout_editor_absoluteX="36dp"
-                        tools:layout_editor_absoluteY="443dp" />
+                        tools:layout_editor_absoluteY="444dp" />
                 </LinearLayout>
 
             </FrameLayout>
             <EditText
                 android:id="@+id/numOfSymbolsInPswd"
-                android:layout_width="95dp"
+                android:layout_width="96dp"
                 android:layout_height="wrap_content"
                 android:hint="@string/symbols_in_pswd"
                 tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="37dp"></EditText>
+                tools:layout_editor_absoluteY="38dp"></EditText>
 
             <Button
                 android:id="@+id/passwordGenerateButton"
                 android:layout_width="174dp"
                 android:layout_height="62dp"
                 android:text="@string/password_generation_generate"
-                tools:layout_editor_absoluteX="43dp"
-                tools:layout_editor_absoluteY="553dp" />
+                tools:layout_editor_absoluteX="44dp"
+                tools:layout_editor_absoluteY="554dp" />
         </TableRow>
 
         <TableRow
@@ -146,8 +146,8 @@
 
     <TextView
         android:id="@+id/readyPasswordTextView"
-        android:layout_width="159dp"
-        android:layout_height="29dp"
+        android:layout_width="160dp"
+        android:layout_height="30dp"
         android:text="@string/ready_password" />
 
     <ProgressBar
@@ -156,6 +156,6 @@
         android:layout_width="250dp"
         android:layout_height="24dp"
         android:background="#95D3CD"
-        android:scrollbarSize="7dp" />
+        android:scrollbarSize="8dp" />
 
 </LinearLayout>
