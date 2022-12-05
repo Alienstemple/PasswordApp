@@ -172,6 +172,8 @@
     <ImageView
         android:id="@+id/pswd_strength_progress_bar"
         android:src="@drawable/progress_bar_rectangle"
+        android:padding="2dp"
+        android:foreground="@drawable/stroke"
         android:layout_width="match_parent"
         android:layout_height="@dimen/pswd_strength_progress_bar_height"
         android:layout_marginLeft="4dp"
