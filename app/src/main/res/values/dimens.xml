@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <dimen name="layout_row_height">36dp</dimen>
+
     <dimen name="text_size">8sp</dimen>
     <dimen name="scrollbar_size">8dp</dimen>
 

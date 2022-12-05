@@ -87,5 +87,7 @@ class MainActivity : AppCompatActivity() {
                 isSpecialSymbChecked
             )
         }
+
+        mainBinding.pswdStrengthProgressBar
     }
 }
