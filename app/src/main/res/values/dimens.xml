@@ -2,4 +2,28 @@
 <resources>
     <dimen name="text_size">8sp</dimen>
     <dimen name="scrollbar_size">8dp</dimen>
+
+    <dimen name="enter_text_editor_x">16dp</dimen>
+    <dimen name="enter_text_editor_y">36dp</dimen>
+
+    <dimen name="translate_copy_paste_buttons_editor_x">184dp</dimen>
+    <dimen name="translate_copy_paste_buttons_editor_y">34dp</dimen>
+
+    <dimen name="check_box_editor_x">36dp</dimen>
+    <dimen name="big_eng_check_box_editor_y">444dp</dimen>
+    <dimen name="special_symb_check_box_y">494dp</dimen>
+    <dimen name="numbers_check_box_editor_y">386dp</dimen>
+
+    <dimen name="num_of_symbols_in_pswd_width">96dp</dimen>
+    <dimen name="num_of_symbols_in_pswd_editor_x">16dp</dimen>
+    <dimen name="num_of_symbols_in_pswd_editor_y">38dp</dimen>
+
+    <dimen name="password_generate_button_width">174dp</dimen>
+    <dimen name="password_generate_button_height">62dp</dimen>
+    <dimen name="password_generate_button_editor_x">44dp</dimen>
+    <dimen name="password_generate_button_editor_y">554dp</dimen>
+    <dimen name="ready_password_text_view_width">160dp</dimen>
+    <dimen name="ready_password_text_view_height">30dp</dimen>
+    <dimen name="pswd_strength_progress_bar_width">250dp</dimen>
+    <dimen name="pswd_strength_progress_bar_height">24dp</dimen>
 </resources>
