@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.passwordapp.databinding.ActivityMainBinding
 import com.example.passwordapp.misc.Constants
+import com.example.passwordapp.misc.KeyboardLayoutTranslator
+import com.example.passwordapp.misc.PasswordGenerator
 
 class MainActivity : AppCompatActivity() {
     private val TAG = "MainActLog"
@@ -58,29 +60,10 @@ class MainActivity : AppCompatActivity() {
             if (enteredText.isEmpty()) {   // Check if empty
                 Log.d(TAG, "Entered text is empty! Can't translate!")
                 mainBinding.anotherLayoutTextView.text = ""
-                return@setOnClickListener  // TODO check
+                return@setOnClickListener
             }
 
-            /**
-             * Checks if symbol is in eng or rus keyborad layout and translates for another layout.
-             * For example, 'R' goes to 'К', '[' goes to 'х', '{' goes to 'Х'
-             */
-            Log.d(TAG, "Entered text: $enteredText")
-            var translatedText = ""
-            for (ind in enteredText.indices) {
-                Log.d(TAG, "Current symbol: ${enteredText[ind]}")
-                var ch = when (enteredText[ind]) {
-                    in Constants.EN_LOW_KEYB -> Constants.RU_LOW[Constants.EN_LOW_KEYB.indexOf(enteredText[ind])]
-                    in Constants.EN_UP_KEYB -> Constants.RU_UP[Constants.EN_UP_KEYB.indexOf(enteredText[ind])]
-                    in Constants.RU_LOW -> Constants.EN_LOW_KEYB[Constants.RU_LOW.indexOf(enteredText[ind])]
-                    in Constants.RU_UP -> Constants.EN_UP_KEYB[Constants.RU_UP.indexOf(enteredText[ind])]
-                    else -> ""  // TODO throw Toast for wrong symbol
-//                    Toast.makeText(this, "Вы ввели неверный символ: ${enteredText[ind]} \n",
-//                        Toast.LENGTH_SHORT)
-                }
-                Log.d(TAG, "Translated to: $ch")
-                translatedText += ch
-            }
+            var translatedText = KeyboardLayoutTranslator.translate(enteredText.toString())
             mainBinding.anotherLayoutTextView.text = translatedText
 
         }
@@ -97,29 +80,12 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            mainBinding.readyPasswordTextView.text = generatePassword(
+            mainBinding.readyPasswordTextView.text = PasswordGenerator.generatePassword(
                 numberOfSymbolsInPswd,
                 isBigEngChecked,
                 isNumberChecked,
                 isSpecialSymbChecked
             )
         }
-
-
-    }
-
-    private fun generatePassword(length: Int, up: Boolean, num: Boolean, special: Boolean): String {
-        var symbolsRange = Constants.EN_LOW  // Default - en low
-        if(up) symbolsRange = "$symbolsRange${Constants.EN_UP}"  // TODO check min 1 symb of this category
-        if(num) symbolsRange = "$symbolsRange${Constants.NUM}"
-        if(special) symbolsRange = "$symbolsRange${Constants.SPEC}"
-        // TODO check length
-        val generatedPswd = CharArray(length) { i -> randomSymbol(symbolsRange) }.joinToString("")
-        Log.d(TAG, "Generated: $generatedPswd")
-        return generatedPswd
-    }
-
-    private fun randomSymbol(symbolsRange: String): Char {
-        return symbolsRange[symbolsRange.indices.random()]
     }
 }
