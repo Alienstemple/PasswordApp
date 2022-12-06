@@ -80,14 +80,17 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            // Set text "символов" from plurals resource
+            mainBinding.numberOfSymbolsText.text = resources.getQuantityText(R.plurals.symbols_in_password, numberOfSymbolsInPswd)
+
             mainBinding.readyPasswordTextView.text = PasswordGenerator.generatePassword(
                 numberOfSymbolsInPswd,
                 isBigEngChecked,
                 isNumberChecked,
                 isSpecialSymbChecked
             )
-        }
 
-        mainBinding.pswdStrengthProgressBar
+//            mainBinding.pswdStrengthProgressBar.setImageDrawable(R.drawable.progress_bar_rectangle_green)
+        }
     }
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <plurals name="symbols_in_password">
+            <item quantity="zero">символов</item>
+            <item quantity="one">символ</item>
+            <item quantity="two">символа</item>
+            <item quantity="few">символа</item>
+            <item quantity="many">символов</item>
+            <item quantity="other">символов</item>
+        </plurals>
+</resources>
