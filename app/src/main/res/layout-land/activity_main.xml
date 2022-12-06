@@ -12,75 +12,73 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/layout_row_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/enter_text"
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:hint="@string/enter_text"
-            android:textSize="12sp"></EditText>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/layout_row_height"
+            android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/copy_button"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_gravity="center"
-            android:background="@android:color/transparent"
-            android:foreground="@mipmap/copy"></ImageButton>
-    </LinearLayout>
+            <EditText
+                android:id="@+id/enter_text"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:gravity="center"
+                android:hint="@string/enter_text"
+                android:textSize="12sp"></EditText>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/layout_row_height"
-        android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/copy_button"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:foreground="@mipmap/copy"></ImageButton>
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/another_layout_text_view"
-            android:layout_width="240dp"
-            android:layout_height="match_parent"
-            android:layout_alignLeft="@+id/enter_text"
-            android:layout_alignRight="@+id/enter_text"
-            android:layout_marginLeft="8dp"
-            android:text="@string/paste_text"
-            android:textSize="12sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/layout_row_height"
+            android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/paste_button"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_gravity="center"
-            android:background="@android:color/transparent"
-            android:foreground="@mipmap/paste"></ImageButton>
+            <TextView
+                android:id="@+id/another_layout_text_view"
+                android:layout_width="240dp"
+                android:layout_height="match_parent"
+                android:layout_alignLeft="@+id/enter_text"
+                android:layout_alignRight="@+id/enter_text"
+                android:layout_marginLeft="8dp"
+                android:gravity="center"
+                android:text="@string/paste_text"
+                android:textSize="12sp" />
 
-        <Button
-            android:id="@+id/translate_button"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_gravity="center"
-            android:text="@string/another_text_layout"
-            android:textSize="@dimen/text_size" />
+            <ImageButton
+                android:id="@+id/paste_button"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:foreground="@mipmap/paste"></ImageButton>
+
+            <Button
+                android:id="@+id/translate_button"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                android:text="@string/another_text_layout"
+                android:textColorHighlight="@color/white"
+                android:textColorHint="@color/white"
+                android:textColorLink="@android:color/background_light"
+                android:textSize="@dimen/text_size" />
+        </LinearLayout>
     </LinearLayout>
 
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-            </LinearLayout>
-
-        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
@@ -160,24 +158,26 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/ready_password_text_view"
+                android:layout_width="@dimen/ready_password_text_view_width"
+                android:layout_height="@dimen/pswd_strength_progress_bar_height"
+                android:gravity="center"
+                android:text="@string/ready_password" />
+
+            <ImageView
+                android:id="@+id/pswd_strength_progress_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/pswd_strength_progress_bar_height"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:foreground="@drawable/stroke"
+                android:padding="4dp"
+                android:scrollbarSize="@dimen/scrollbar_size"
+                android:src="@drawable/progress_bar_rectangle_base" />
+        </TableRow>
     </TableLayout>
-
-    <TextView
-        android:id="@+id/ready_password_text_view"
-        android:layout_width="@dimen/ready_password_text_view_width"
-        android:layout_height="@dimen/pswd_strength_progress_bar_height"
-        android:text="@string/ready_password" />
-
-    <ImageView
-        android:id="@+id/pswd_strength_progress_bar"
-        android:src="@drawable/progress_bar_rectangle_base"
-        android:padding="2dp"
-        android:foreground="@drawable/stroke"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/pswd_strength_progress_bar_height"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
-        android:scrollbarSize="@dimen/scrollbar_size" />
 
 </LinearLayout>
