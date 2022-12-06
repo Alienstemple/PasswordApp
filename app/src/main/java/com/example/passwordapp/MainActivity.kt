@@ -25,11 +25,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(mainBinding.root)
 
         // Initialise texts
-        val en_UP = getString(R.string.en_up)
-        val en_LOW = getString(R.string.en_low)
+        val en_up = resources.getString(R.string.en_up)
+        val en_low = resources.getString(R.string.en_low)
 
-        val ru_UP = resources.getString(R.string.ru_up)
-        val ru_LOW = resources.getString(R.string.ru_low)
+        val en_up_keyb = resources.getString(R.string.en_up_keyb)
+        val en_low_keyb = resources.getString(R.string.en_low_keyb)
+
+        val ru_up = resources.getString(R.string.ru_up)
+        val ru_low = resources.getString(R.string.ru_low)
 
         myClipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
 
@@ -61,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            var translatedText = KeyboardLayoutTranslator.translate(enteredText.toString())
+            var translatedText = KeyboardLayoutTranslator(this).translate(enteredText.toString())
             mainBinding.anotherLayoutTextView.text = translatedText
 
         }
@@ -82,7 +85,7 @@ class MainActivity : AppCompatActivity() {
             mainBinding.numberOfSymbolsText.text =
                 resources.getQuantityText(R.plurals.symbols_in_password, numberOfSymbolsInPswd)
 
-            mainBinding.readyPasswordTextView.text = PasswordGenerator.generatePassword(
+            mainBinding.readyPasswordTextView.text = PasswordGenerator(this).generatePassword(
                 numberOfSymbolsInPswd,
                 isBigEngChecked,
                 isNumberChecked,

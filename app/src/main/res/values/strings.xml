@@ -19,17 +19,31 @@
     <string name="symbols_amount">Символов</string>
     <string name="ready_password">Готовый пароль</string>
     <string name="symbols_in_pswd">Символов в пароле</string>
+    <string name="too_short_pswd_alert">Задано слишком малое число символов!</string>
 
-    <item name="en_up" type="string" translatable="false">
+
+    <item name="en_up_keyb" type="string" translatable="false">
         QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM&lt;&gt;
     </item>
-    <item name="en_low" type="string" translatable="false">
+    <item name="en_low_keyb" type="string" translatable="false">
         qwertyuiop[]asdfghjkl;\'zxcvbnm,.
+    </item>
+    <item name="en_low" type="string" translatable="false">
+        qwertyuiopasdfghjklzxcvbnm
+    </item>
+    <item name="en_up" type="string" translatable="false">
+        QWERTYUIOPASDFGHJKLZXCVBNM
     </item>
     <item name="ru_up" type="string" translatable="false">
         ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ
     </item>
     <item name="ru_low" type="string" translatable="false">
         йцукенгшщзхъфывапролджэячсмитьбю
+    </item>
+    <item name="num" type="string" translatable="false">
+        1234567890
+    </item>
+    <item name="spec" type="string" translatable="false">
+        ~!@#$%^&amp;*-_
     </item>
 </resources>
