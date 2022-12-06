@@ -2,8 +2,13 @@ package com.example.passwordapp
 
 import android.content.ClipData
 import android.content.ClipboardManager
+import android.graphics.drawable.ClipDrawable
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.LevelListDrawable
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.passwordapp.databinding.ActivityMainBinding
@@ -75,14 +80,39 @@ class MainActivity : AppCompatActivity() {
             mainBinding.numberOfSymbolsText.text =
                 resources.getQuantityText(R.plurals.symbols_in_password, numberOfSymbolsInPswd)
 
-            mainBinding.readyPasswordTextView.text = PasswordGenerator(this).generatePassword(
+            // Show ready password
+            val generatedPassword = PasswordGenerator(this).generatePassword(
                 numberOfSymbolsInPswd,
                 isBigEngChecked,
                 isNumberChecked,
                 isSpecialSymbChecked
             )
+            mainBinding.readyPasswordTextView.text = generatedPassword
 
-            mainBinding.pswdStrengthProgressBar.setImageLevel(1)  // TODO must be red
+            // Evaluate password strength with progress bar
+
+            var strength = when(generatedPassword.length) {
+                in 14..Int.MAX_VALUE -> "STRONG"
+                in 10..13 -> "GOOD"
+                in 6..9 -> "MEDIUM"
+                in Constants.MIN_PSWD_LENGTH..6 -> "BAD"
+                else -> "BAD"  // Should not reach this code
+            }
+
+
+//            var foreground: Drawable = resources.getDrawable(R.drawable.progress_bar_items)
+//            mainBinding.pswdStrengthProgressBar.foreground = foreground
+
+            var foreground: Drawable = resources.getDrawable(R.drawable.progress_bar_items, theme)
+            foreground.level = 1
+            var clipForeground = ClipDrawable(foreground, ClipDrawable.HORIZONTAL, Gravity.LEFT)
+//            clipForeground.setLevel(4000)
+//            mainBinding.pswdStrengthProgressBar.setImageDrawable(foreground)
+//            val drawable: Drawable = imageview.foreground
+//            if (drawable is ClipDrawable) {
+//                drawable.level = drawable.level + 1000
+//            }
+
         }
     }
 }
