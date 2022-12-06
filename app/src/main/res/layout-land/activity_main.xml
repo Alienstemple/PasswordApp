@@ -173,7 +173,7 @@
                 android:layout_height="@dimen/pswd_strength_progress_bar_height"
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
-                android:foreground="@drawable/stroke"
+                android:foreground="@drawable/progress_bar_rectangle_base"
                 android:padding="4dp"
                 android:scrollbarSize="@dimen/scrollbar_size"
                 android:src="@drawable/progress_bar_rectangle_base" />

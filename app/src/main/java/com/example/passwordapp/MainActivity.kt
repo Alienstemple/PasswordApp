@@ -24,16 +24,6 @@ class MainActivity : AppCompatActivity() {
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
 
-        // Initialise texts
-        val en_up = resources.getString(R.string.en_up)
-        val en_low = resources.getString(R.string.en_low)
-
-        val en_up_keyb = resources.getString(R.string.en_up_keyb)
-        val en_low_keyb = resources.getString(R.string.en_low_keyb)
-
-        val ru_up = resources.getString(R.string.ru_up)
-        val ru_low = resources.getString(R.string.ru_low)
-
         myClipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
 
         val enteredText = mainBinding.enterText.text
@@ -92,7 +82,7 @@ class MainActivity : AppCompatActivity() {
                 isSpecialSymbChecked
             )
 
-//            mainBinding.pswdStrengthProgressBar.setImageDrawable(R.drawable.progress_bar_rectangle_green)
+            mainBinding.pswdStrengthProgressBar.setImageLevel(1)  // TODO must be red
         }
     }
 }
