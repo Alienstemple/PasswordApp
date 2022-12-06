@@ -99,20 +99,11 @@ class MainActivity : AppCompatActivity() {
                 else -> "BAD"  // Should not reach this code
             }
 
-
-//            var foreground: Drawable = resources.getDrawable(R.drawable.progress_bar_items)
-//            mainBinding.pswdStrengthProgressBar.foreground = foreground
-
             var foreground: Drawable = resources.getDrawable(R.drawable.progress_bar_items, theme)
-            foreground.level = 1
+            foreground.level = 1  // FIXME Doesn't set level
             var clipForeground = ClipDrawable(foreground, ClipDrawable.HORIZONTAL, Gravity.LEFT)
-//            clipForeground.setLevel(4000)
-//            mainBinding.pswdStrengthProgressBar.setImageDrawable(foreground)
-//            val drawable: Drawable = imageview.foreground
-//            if (drawable is ClipDrawable) {
-//                drawable.level = drawable.level + 1000
-//            }
-
+            clipForeground.setLevel(4000)
+            mainBinding.pswdStrengthProgressBar.setImageDrawable(foreground)
         }
     }
 }
