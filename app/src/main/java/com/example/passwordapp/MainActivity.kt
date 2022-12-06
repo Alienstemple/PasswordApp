@@ -18,20 +18,18 @@ class MainActivity : AppCompatActivity() {
     lateinit var myClipboard: ClipboardManager //  Does not work: private var clipboardManager: ClipboardManager? = null
     lateinit var myClip: ClipData
 
-    // Get En and Ru symbols
-//    private val en_UP = getString(R.string.en_up)
-//    private val en_LOW = getString(R.string.en_low)
-//    private val en = en_UP + en_LOW
-//
-//    private val ru_UP = resources.getString(R.string.ru_up)   // FIXME java.lang.NPE
-//    private val ru_LOW = resources.getString(R.string.ru_low)
-//    private val ru = ru_UP + ru_LOW
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "In onCreate")
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
+
+        // Initialise texts
+        val en_UP = getString(R.string.en_up)
+        val en_LOW = getString(R.string.en_low)
+
+        val ru_UP = resources.getString(R.string.ru_up)
+        val ru_LOW = resources.getString(R.string.ru_low)
 
         myClipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
 
@@ -81,7 +79,8 @@ class MainActivity : AppCompatActivity() {
             }
 
             // Set text "символов" from plurals resource
-            mainBinding.numberOfSymbolsText.text = resources.getQuantityText(R.plurals.symbols_in_password, numberOfSymbolsInPswd)
+            mainBinding.numberOfSymbolsText.text =
+                resources.getQuantityText(R.plurals.symbols_in_password, numberOfSymbolsInPswd)
 
             mainBinding.readyPasswordTextView.text = PasswordGenerator.generatePassword(
                 numberOfSymbolsInPswd,
