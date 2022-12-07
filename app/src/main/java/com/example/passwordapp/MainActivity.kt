@@ -102,9 +102,9 @@ class MainActivity : AppCompatActivity() {
             var foreground: Drawable = resources.getDrawable(R.drawable.progress_bar_items, theme)
 
             // or LevelListDrawable().addLevel(Drawable) ?
-            foreground.level = 1  // FIXME Doesn't set level
-            var clipForeground = ClipDrawable(foreground, ClipDrawable.HORIZONTAL, Gravity.LEFT)
-            clipForeground.setLevel(4000)
+            foreground.level = 2
+//            var clipForeground = ClipDrawable(foreground, ClipDrawable.HORIZONTAL, Gravity.LEFT)
+//            clipForeground.setLevel(4000)
             mainBinding.pswdStrengthProgressBar.setImageDrawable(foreground)
         }
     }
