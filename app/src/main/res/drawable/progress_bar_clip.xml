@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <clip xmlns:android="http://schemas.android.com/apk/res/android"
-    android:drawable="@drawable/progress_bar_items"
+    android:drawable="@drawable/progress_bar_layer_list"
     android:clipOrientation="horizontal"
-    android:gravity="left">
+    android:gravity="start">
 </clip>

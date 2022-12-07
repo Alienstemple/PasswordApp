@@ -99,13 +99,18 @@ class MainActivity : AppCompatActivity() {
                 else -> "BAD"  // Should not reach this code
             }
 
-            var foreground: Drawable = resources.getDrawable(R.drawable.progress_bar_items, theme)
+            var levelList: Drawable = resources.getDrawable(R.drawable.progress_bar_items, theme)
 
             // or LevelListDrawable().addLevel(Drawable) ?
-            foreground.level = 2
-//            var clipForeground = ClipDrawable(foreground, ClipDrawable.HORIZONTAL, Gravity.LEFT)
-//            clipForeground.setLevel(4000)
-            mainBinding.pswdStrengthProgressBar.setImageDrawable(foreground)
+//            levelList.level = 2
+//            var clipForeground = ClipDrawable(
+//                resources.getDrawable(R.drawable.progress_bar_rectangle_green, theme), ClipDrawable.VERTICAL, Gravity.AXIS_CLIP)
+//            clipForeground.setLevel(7000)
+
+//            var foreground = resources.getDrawable(R.drawable.progress_bar_clip, theme)
+//
+//            foreground.setLevel(5)
+            mainBinding.pswdStrengthProgressBar.setImageLevel(7000)
         }
     }
 }

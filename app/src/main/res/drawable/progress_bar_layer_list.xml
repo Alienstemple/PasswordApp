@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <stroke
+                android:width="2dp"
+                android:color="@color/teal_200"
+                android:dashWidth="4dp"
+                android:dashGap="4dp" />
+
+            <solid android:color="@color/gray" />
+
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+    <item
+        android:bottom="4dp"
+        android:left="4dp"
+        android:right="4dp"
+        android:top="4dp">
+        <clip xmlns:android="http://schemas.android.com/apk/res/android"
+            android:drawable="@drawable/progr_bar_gradient"
+            android:clipOrientation="horizontal"
+            android:gravity="start">
+        </clip>
+    </item>
+</layer-list>
