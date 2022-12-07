@@ -30,8 +30,14 @@ class PasswordGenerator(context: Context) {
         return generatedPswd
     }
 
-    fun checkStrength(password: String) {
-        // TODO
+    fun checkStrength(password: String): PasswordStrength {
+        return when(password.length) {
+            in 14..Int.MAX_VALUE -> PasswordStrength.STRONG
+            in 10..13 -> PasswordStrength.GOOD
+            in 6..9 -> PasswordStrength.MEDIUM
+            in Constants.MIN_PSWD_LENGTH..6 -> PasswordStrength.BAD
+            else -> PasswordStrength.BAD  // Should not reach this code
+        }
     }
 
     private fun randomSymbol(symbolsRange: String): Char {

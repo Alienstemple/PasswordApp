@@ -2,19 +2,15 @@ package com.example.passwordapp
 
 import android.content.ClipData
 import android.content.ClipboardManager
-import android.graphics.drawable.ClipDrawable
-import android.graphics.drawable.Drawable
-import android.graphics.drawable.LevelListDrawable
 import android.os.Bundle
 import android.util.Log
-import android.view.Gravity
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.passwordapp.databinding.ActivityMainBinding
 import com.example.passwordapp.misc.Constants
 import com.example.passwordapp.misc.KeyboardLayoutTranslator
 import com.example.passwordapp.misc.PasswordGenerator
+import com.example.passwordapp.misc.PasswordStrength
 
 class MainActivity : AppCompatActivity() {
     private val TAG = "MainActLog"
@@ -90,27 +86,15 @@ class MainActivity : AppCompatActivity() {
             mainBinding.readyPasswordTextView.text = generatedPassword
 
             // Evaluate password strength with progress bar
-
-            var strength = when(generatedPassword.length) {
-                in 14..Int.MAX_VALUE -> "STRONG"
-                in 10..13 -> "GOOD"
-                in 6..9 -> "MEDIUM"
-                in Constants.MIN_PSWD_LENGTH..6 -> "BAD"
-                else -> "BAD"  // Should not reach this code
+            val strength = PasswordGenerator(this).checkStrength(generatedPassword)
+            val imageLevel = when (strength) {
+                PasswordStrength.STRONG -> 10000
+                PasswordStrength.GOOD -> 7500
+                PasswordStrength.MEDIUM -> 5000
+                PasswordStrength.BAD -> 3500
             }
 
-            var levelList: Drawable = resources.getDrawable(R.drawable.progress_bar_items, theme)
-
-            // or LevelListDrawable().addLevel(Drawable) ?
-//            levelList.level = 2
-//            var clipForeground = ClipDrawable(
-//                resources.getDrawable(R.drawable.progress_bar_rectangle_green, theme), ClipDrawable.VERTICAL, Gravity.AXIS_CLIP)
-//            clipForeground.setLevel(7000)
-
-//            var foreground = resources.getDrawable(R.drawable.progress_bar_clip, theme)
-//
-//            foreground.setLevel(5)
-            mainBinding.pswdStrengthProgressBar.setImageLevel(7000)
+            mainBinding.pswdStrengthProgressBar.setImageLevel(imageLevel)
         }
     }
 }
