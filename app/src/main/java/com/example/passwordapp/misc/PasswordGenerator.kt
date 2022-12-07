@@ -1,17 +1,9 @@
 package com.example.passwordapp.misc
 
-import android.content.Context
 import android.util.Log
-import com.example.passwordapp.MainActivity
-import com.example.passwordapp.R
 
-class PasswordGenerator(context: Context) {
+class PasswordGenerator(private val en_up: String, private val en_low: String, private val numbers: String, private val spec: String) {
     private val TAG = "PswdGeneratorLog"
-
-    private val en_up = context.resources.getString(R.string.en_up)
-    private val en_low = context.resources.getString(R.string.en_low)
-    private val numbers = context.resources.getString(R.string.num)
-    private val spec = context.resources.getString(R.string.spec)
 
     fun generatePassword(length: Int, up: Boolean, num: Boolean, special: Boolean): String {
         var symbolsRange = en_low  // Default - en low

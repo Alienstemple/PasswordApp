@@ -4,13 +4,8 @@ import android.content.Context
 import android.util.Log
 import com.example.passwordapp.R
 
-class KeyboardLayoutTranslator(context: Context) {
+class KeyboardLayoutTranslator(private val en_up_keyb: String, private val en_low_keyb: String, private val ru_up: String, private val ru_low: String) {
     private val TAG = "KeybLayTranslLog"
-
-    private val en_up_keyb = context.resources.getString(R.string.en_up_keyb)
-    private val en_low_keyb = context.resources.getString(R.string.en_low_keyb)
-    private val ru_up = context.resources.getString(R.string.ru_up)
-    private val ru_low = context.resources.getString(R.string.ru_low)
 
     fun translate(enteredText: String): String {
         /**

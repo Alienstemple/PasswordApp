@@ -25,6 +25,15 @@ class MainActivity : AppCompatActivity() {
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
 
+        val en_up_keyb = resources.getString(R.string.en_up_keyb)
+        val en_low_keyb = resources.getString(R.string.en_low_keyb)
+        val en_up = resources.getString(R.string.en_up)
+        val en_low = resources.getString(R.string.en_low)
+        val ru_up = resources.getString(R.string.ru_up)
+        val ru_low = resources.getString(R.string.ru_low)
+        val numbers = resources.getString(R.string.num)
+        val special = resources.getString(R.string.spec)
+
         myClipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
 
         val enteredText = mainBinding.enterText.text
@@ -55,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            var translatedText = KeyboardLayoutTranslator(this).translate(enteredText.toString())
+            var translatedText = KeyboardLayoutTranslator(en_up_keyb, en_low_keyb, ru_up, ru_low).translate(enteredText.toString())
             mainBinding.anotherLayoutTextView.text = translatedText
 
         }
@@ -77,7 +86,7 @@ class MainActivity : AppCompatActivity() {
                 resources.getQuantityText(R.plurals.symbols_in_password, numberOfSymbolsInPswd)
 
             // Show ready password
-            val generatedPassword = PasswordGenerator(this).generatePassword(
+            val generatedPassword = PasswordGenerator(en_up, en_low, numbers, special).generatePassword(
                 numberOfSymbolsInPswd,
                 isBigEngChecked,
                 isNumberChecked,
@@ -86,7 +95,7 @@ class MainActivity : AppCompatActivity() {
             mainBinding.readyPasswordTextView.text = generatedPassword
 
             // Evaluate password strength with progress bar
-            val strength = PasswordGenerator(this).checkStrength(generatedPassword)
+            val strength = PasswordGenerator(en_up, en_low, numbers, special).checkStrength(generatedPassword)
             val imageLevel = when (strength) {
                 PasswordStrength.STRONG -> 10000
                 PasswordStrength.GOOD -> 7500
