@@ -22,28 +22,28 @@
     <string name="too_short_pswd_alert">Задано слишком малое число символов!</string>
 
 
-    <item name="en_up_keyb" type="string" translatable="false">
+    <item name="en_up_keyb" translatable="false" type="string">
         QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM&lt;&gt;
     </item>
-    <item name="en_low_keyb" type="string" translatable="false">
+    <item name="en_low_keyb" translatable="false" type="string">
         qwertyuiop[]asdfghjkl;\'zxcvbnm,.
     </item>
-    <item name="en_low" type="string" translatable="false">
+    <item name="en_low" translatable="false" type="string">
         qwertyuiopasdfghjklzxcvbnm
     </item>
-    <item name="en_up" type="string" translatable="false">
+    <item name="en_up" translatable="false" type="string">
         QWERTYUIOPASDFGHJKLZXCVBNM
     </item>
-    <item name="ru_up" type="string" translatable="false">
+    <item name="ru_up" translatable="false" type="string">
         ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ
     </item>
-    <item name="ru_low" type="string" translatable="false">
+    <item name="ru_low" translatable="false" type="string">
         йцукенгшщзхъфывапролджэячсмитьбю
     </item>
-    <item name="num" type="string" translatable="false">
+    <item name="num" translatable="false" type="string">
         1234567890
     </item>
-    <item name="spec" type="string" translatable="false">
+    <item name="spec" translatable="false" type="string">
         ~!@#$%^&amp;*-_
     </item>
 </resources>
