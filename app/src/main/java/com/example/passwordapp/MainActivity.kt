@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.PreferenceManager
 import com.example.passwordapp.databinding.ActivityMainBinding
 import com.example.passwordapp.misc.Constants
 import com.example.passwordapp.misc.KeyboardLayoutTranslator
@@ -47,6 +48,31 @@ class MainActivity : AppCompatActivity() {
         initPasswordGenearte()
 
         saveAndRestoreEnteredText(enteredText)
+
+        initFromSettings()
+
+    }
+
+    private fun initFromSettings() {
+        val prefs = PreferenceManager  // Preferences из настроек
+            .getDefaultSharedPreferences(this)
+        // вытащили preferences
+        val numberOfSymbols: String? = prefs.getString("numberOfSymbols", "0")
+        val useDigits: Boolean = prefs.getBoolean("digits", false)
+        val useCapital: Boolean = prefs.getBoolean("capital", false)
+        val useSpecial: Boolean = prefs.getBoolean("special", false)
+
+        Log.d(TAG,
+            "Got from preferences: numOfSymb = $numberOfSymbols, digits = $useDigits, capital = $useCapital, special = $useSpecial")
+
+        // preferences.get()
+        mainBinding.apply {
+            // установим значения
+            numOfSymbolsInPswd.setText(numberOfSymbols)
+            numbersCheckBox.isChecked = useDigits
+            bigEngCheckBox.isChecked = useCapital
+            specialSymbCheckBox.isChecked = useSpecial
+        }
     }
 
     private fun saveAndRestoreEnteredText(enteredText: Editable?) {
