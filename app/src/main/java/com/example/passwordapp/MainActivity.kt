@@ -166,8 +166,8 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.settings_menu -> {
-                // TODO go to settings activity and fragment
-//                supportFragmentManager.beginTransaction().replace(/*R.id.settings_menu*/, SettingsFragment()).commit()
+                intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
             }
         }
         return super.onOptionsItemSelected(item)
