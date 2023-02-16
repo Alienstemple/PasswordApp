@@ -53,14 +53,24 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause() called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume() called")
+    }
+
     private fun initFromSettings() {
         val prefs = PreferenceManager  // Preferences из настроек
             .getDefaultSharedPreferences(this)
         // вытащили preferences
-        val numberOfSymbols: String? = prefs.getString("numberOfSymbols", "0")
-        val useDigits: Boolean = prefs.getBoolean("digits", false)
-        val useCapital: Boolean = prefs.getBoolean("capital", false)
-        val useSpecial: Boolean = prefs.getBoolean("special", false)
+        val numberOfSymbols: String? = prefs.getString(getString(R.string.numberOfSymbols), "0")
+        val useDigits: Boolean = prefs.getBoolean(getString(R.string.digits), false)
+        val useCapital: Boolean = prefs.getBoolean(getString(R.string.capital), false)
+        val useSpecial: Boolean = prefs.getBoolean(getString(R.string.special), false)
 
         Log.d(TAG,
             "Got from preferences: numOfSymb = $numberOfSymbols, digits = $useDigits, capital = $useCapital, special = $useSpecial")

@@ -3,22 +3,20 @@
     <PreferenceCategory app:title="Генерация пароля">
 
         <EditTextPreference
-            app:key="numberOfSymbols"
+            app:key="@string/numberOfSymbols"
             app:title="Количество символов в пароле"
             app:useSimpleSummaryProvider="true" />
 
         <SwitchPreferenceCompat
-            app:key="digits"
+            app:key="@string/digits"
             app:title="Использовать цифры" />
 
         <SwitchPreferenceCompat
-            app:key="capital"
+            app:key="@string/capital"
             app:title="Использовать большие буквы" />
 
         <SwitchPreferenceCompat
-            app:key="special"
+            app:key="@string/special"
             app:title="Использовать спец символы" />
-
-
     </PreferenceCategory>
 </PreferenceScreen>

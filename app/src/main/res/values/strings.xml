@@ -21,6 +21,10 @@
     <string name="symbols_in_pswd">Символов в пароле</string>
     <string name="too_short_pswd_alert">Задано слишком малое число символов!</string>
 
+    <string name="capital">capital</string>
+    <string name="digits">digits</string>
+    <string name="special">special</string>
+    <string name="numberOfSymbols">numberOfSymbols</string>
 
     <item name="en_up_keyb" translatable="false" type="string">
         QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM&lt;&gt;
